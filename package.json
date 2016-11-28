@@ -4,7 +4,7 @@
     "keywords": [],
     "name": "anery",
     "pebble": {
-        "displayName": "Anery",
+        "displayName": "Anery-",
         "enableMultiJS": true,
         "messageKeys": [],
         "projectType": "native",
