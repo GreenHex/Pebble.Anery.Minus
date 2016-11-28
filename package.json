@@ -1,0 +1,27 @@
+{
+    "author": "The Resetter",
+    "dependencies": {},
+    "keywords": [],
+    "name": "anery",
+    "pebble": {
+        "displayName": "Anery",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt",
+            "diorite",
+            "emery"
+        ],
+        "uuid": "049abcdd-23b0-4189-b616-c7a1bb91c9d1",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.0.0"
+}
