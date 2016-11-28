@@ -11,11 +11,37 @@ typedef struct {
   int increment;
   int tick_thk;
   int tick_length;
-  uint32_t tick_colour;
-  uint32_t bg_colour;
+  GColor tick_colour;
+  GColor bg_colour;
 } DRAW_TICKS_PARAMS;
+
+typedef struct {
+  GContext *ctx;
+  GPoint center_pt;
+  uint32_t angle;
+  GPathInfo *gpath_hand;
+  GPathInfo *gpath_hand_highlight;
+  GColor hand_colour;
+  GColor hand_highlight_colour;
+  GColor hand_outline_colour;
+} GPATH_HANDS_PARAMS;
+
+typedef struct {
+  GContext *ctx;
+  GPoint center_pt;
+  GPoint from_pt;
+  GPoint to_pt;
+  uint8_t hand_width;
+  GColor hand_colour;
+  GColor hand_outline_colour;
+  uint16_t dot_radius;
+  GColor dot_colour;
+  GColor dot_outline_colour;
+} HAND_DRAW_PARAMS;
 
 bool is_X_in_range( int a, int b, int x );
 void print_pt( char *str, GPoint pt );
 void print_rect( char *str, GRect rect );
 void draw_seconds_ticks( DRAW_TICKS_PARAMS *pDTP );
+void draw_gpath_hands( GPATH_HANDS_PARAMS *pGP );
+void draw_clock_hand( HAND_DRAW_PARAMS *pDP );
