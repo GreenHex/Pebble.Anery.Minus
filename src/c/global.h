@@ -4,5 +4,6 @@
 
 #pragma once
 #include <pebble.h>
+#include "pbl_64_hex_colours.h"
 
 #define DEBUG
