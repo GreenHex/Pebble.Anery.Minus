@@ -23,13 +23,13 @@ static void battery_layer_update_proc( Layer *layer, GContext *ctx ) {
   gpath_move_to( gpath, BATTERY_GAUGE_TICK_POS );
   graphics_context_set_stroke_width( ctx, 1 );
   gpath_rotate_to( gpath, DEG_TO_TRIGANGLE( 0 ) );
-  graphics_context_set_stroke_color( ctx, GColorLightGray );
+  graphics_context_set_stroke_color( ctx, PBL_IF_COLOR_ELSE( GColorLightGray, GColorWhite ) );
   gpath_draw_outline( ctx, gpath );
   gpath_rotate_to( gpath, DEG_TO_TRIGANGLE( BATTERY_GAUGE_MAX_ANGLE_DEG ) );
-  graphics_context_set_stroke_color( ctx, GColorKellyGreen );
+  graphics_context_set_stroke_color( ctx, PBL_IF_COLOR_ELSE( GColorIslamicGreen, GColorWhite ) );
   gpath_draw_outline( ctx, gpath );
   gpath_rotate_to( gpath, DEG_TO_TRIGANGLE( -BATTERY_GAUGE_MAX_ANGLE_DEG ) );
-  graphics_context_set_stroke_color( ctx, GColorOrange );
+  graphics_context_set_stroke_color( ctx, PBL_IF_COLOR_ELSE( GColorOrange, GColorWhite ) );
   gpath_draw_outline( ctx, gpath );
   gpath_destroy( gpath );
   
@@ -45,12 +45,16 @@ static void battery_layer_update_proc( Layer *layer, GContext *ctx ) {
     .from_pt = BATTERY_GAUGE_PIVOT,
     .to_pt = battery_hand,
     .hand_width = 1,
-    .hand_colour = GColorDarkGray,
+    .hand_colour = PBL_IF_COLOR_ELSE( GColorDarkGray, GColorWhite ),
     .hand_outline_colour = GColorBlack,
     .dot_radius = BATT_GAUGE_DOT_RADIUS,
-    .dot_colour = GColorDarkGray,
+    .dot_colour = PBL_IF_COLOR_ELSE( GColorDarkGray, GColorWhite ),
     .dot_outline_colour = GColorBlack
   } );
+  
+  graphics_context_set_fill_color( ctx, charge_state.is_charging ? GColorJaegerGreen : 
+                                  charge_state.charge_percent < 16 ? GColorFolly : GColorDarkGray );
+  graphics_fill_circle( ctx, BATTERY_GAUGE_PIVOT, 1 );
 }
 
 void battery_init( Layer* parent_layer ) {
