@@ -31,8 +31,6 @@ static void date_text_layer_update_proc( Layer *layer, GContext *ctx ) {
 }
 
 void date_init( Layer *parent_layer ) {
-  GRect parent_layer_bounds = layer_get_bounds( parent_layer );
-  
   date_layer = layer_create( DATE_WINDOW_FRAME );
   layer_set_update_proc( date_layer, date_layer_update_proc );
   layer_add_child( parent_layer, date_layer );

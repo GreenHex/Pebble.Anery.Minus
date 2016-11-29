@@ -144,7 +144,7 @@ static void prv_unobstructed_change( AnimationProgress progress, void *context )
   date_window_frame.origin.y = uo_bounds.origin.y + uo_bounds.size.h/2 - date_window_frame.size.h/2;
   layer_set_frame( date_layer, date_window_frame );
   GRect battery_gauge_frame = BATTERY_GAUGE_FRAME;
-  date_window_frame.origin.y = uo_bounds.origin.y + uo_bounds.size.h/2 - battery_gauge_frame.size.h/2;
+  battery_gauge_frame.origin.y = uo_bounds.origin.y + uo_bounds.size.h/2 - battery_gauge_frame.size.h/2;
   layer_set_frame( battery_layer, battery_gauge_frame );
   layer_mark_dirty( dial_layer );
 }

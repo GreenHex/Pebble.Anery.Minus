@@ -8,14 +8,16 @@
 
 #if PBL_DISPLAY_WIDTH == 200
 
-#define BATT_GAUGE_SIZE_W 55
+#define BATT_GAUGE_SIZE_W 45
 #define BATT_GAUGE_SIZE_H 45
+#define BATT_HAND_LENGTH 35
 #define BATT_GAUGE_DOT_RADIUS 3
 
 #else
 
-#define BATT_GAUGE_SIZE_W 40
-#define BATT_GAUGE_SIZE_H 32
+#define BATT_GAUGE_SIZE_W 35
+#define BATT_GAUGE_SIZE_H 30
+#define BATT_HAND_LENGTH 26
 #define BATT_GAUGE_DOT_RADIUS 3
 
 #endif
@@ -26,49 +28,30 @@
 #define BATTERY_GAUGE_FRAME ( GRect ( BATTERY_GAUGE_POS_X, BATTERY_GAUGE_POS_Y, BATT_GAUGE_SIZE_W, BATT_GAUGE_SIZE_H ) )
 
 #define BATTERY_GAUGE_PIVOT ( GPoint( BATT_GAUGE_SIZE_W - BATT_GAUGE_RIGHT_GAP, BATT_GAUGE_SIZE_H/2 ) )
-#define BATTERY_MAX_ANGLE_DEG 10
+#define BATTERY_GAUGE_MAX_ANGLE_DEG 20
+#define BATTERY_GAUGE_TICK_POS_X ( -BATT_GAUGE_SIZE_W )
+#define BATTERY_GAUGE_TICK_POS_Y ( BATT_GAUGE_SIZE_H / 2 )
+#define BATTERY_GAUGE_TICK_POS ( GPoint( -BATTERY_GAUGE_TICK_POS_X, BATTERY_GAUGE_TICK_POS_Y ) )
 
 #define COLOUR_BATT_15          GColorRed
 #define COLOUR_BATT_95          GColorDarkGreen
 #define COLOUR_BATT_100         GColorMayGreen
 
-
-
 #if PBL_DISPLAY_WIDTH == 200
-
-static GPathInfo BATT_GAUGE_HAND = {
-  5, (GPoint []) {
-    { -1, 0 },
-    { -2, -20 },
-    { 0, -38 },
-    { 2, -20 },
-    { 1, 0 }
-  }
-};
 
 static GPathInfo BATT_GAUGE_TICK = {
   2, (GPoint[]) {
-    { 0, 0 },
-    { 7, 0 }
+    { BATTERY_GAUGE_TICK_POS_X + 5, 0 },
+    { BATTERY_GAUGE_TICK_POS_X, 0 }
   }
 };
 
 #else
 
-static GPathInfo BATT_GAUGE_HAND = {
-  5, (GPoint []) {
-    { -1, 0 },
-    { -2, -15 },
-    { 0, -27 },
-    { 2, -15 },
-    { 1, 0 }
-  }
-};
-
 static GPathInfo BATT_GAUGE_TICK = {
   2, (GPoint[]) {
-    { 0, 0 },
-    { 5, 0 }
+    { BATTERY_GAUGE_TICK_POS_X + 3, 0 },
+    { BATTERY_GAUGE_TICK_POS_X, 0 }
   }
 };
 
