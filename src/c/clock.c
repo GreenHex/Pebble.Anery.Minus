@@ -134,7 +134,7 @@ static void start_seconds_display( AccelAxisType axis, int32_t direction ) {
   }
 }
 
-static void prv_unobstructed_change( AnimationProgress progress, void *context ) {
+static void unobstructed_change_proc( AnimationProgress progress, void *context ) {
   GRect uo_bounds = layer_get_unobstructed_bounds( (Layer *) context );
   layer_set_bounds( dial_layer, uo_bounds );
   layer_set_bounds( hours_layer, uo_bounds );
@@ -171,7 +171,7 @@ void clock_init( Window* window ){
   layer_set_update_proc( seconds_layer, seconds_layer_update_proc );
   layer_add_child( dial_layer, seconds_layer );
   
-  unobstructed_area_service_subscribe( (UnobstructedAreaHandlers) { .change = prv_unobstructed_change }, window_layer );
+  unobstructed_area_service_subscribe( (UnobstructedAreaHandlers) { .change = unobstructed_change_proc }, window_layer );
   tick_timer_service_subscribe( MINUTE_UNIT, handle_clock_tick );
   accel_tap_service_subscribe( start_seconds_display );
   

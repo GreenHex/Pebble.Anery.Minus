@@ -9,13 +9,13 @@
 // "after" includes the hour, "upto" excludes the hour.
 bool is_X_in_range( int a, int b, int x ) { return ( ( b > a ) ? ( ( x >= a ) && ( x < b ) ) : ( ( x >= a ) || ( x < b ) ) ); };
 
-void print_pt( char *str, GPoint pt ) {
+void log_pt( char *str, GPoint pt ) {
   #ifdef DEBUG
   APP_LOG( APP_LOG_LEVEL_INFO, "%s: ( %d, %d )", str, pt.x, pt.y );
   #endif
 }
 
-void print_rect( char *str, GRect rect ) {
+void log_rect( char *str, GRect rect ) {
   #ifdef DEBUG
   APP_LOG( APP_LOG_LEVEL_INFO, "%s: ( %d, %d, %d, %d )", str, rect.origin.x, rect.origin.y, rect.size.w, rect.size.h );
   #endif

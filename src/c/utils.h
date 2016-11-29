@@ -40,8 +40,8 @@ typedef struct {
 } HAND_DRAW_PARAMS;
 
 bool is_X_in_range( int a, int b, int x );
-void print_pt( char *str, GPoint pt );
-void print_rect( char *str, GRect rect );
+void log_pt( char *str, GPoint pt );
+void log_rect( char *str, GRect rect );
 void draw_seconds_ticks( DRAW_TICKS_PARAMS *pDTP );
 void draw_gpath_hands( GPATH_HANDS_PARAMS *pGP );
 void draw_clock_hand( HAND_DRAW_PARAMS *pDP );
