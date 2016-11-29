@@ -6,13 +6,16 @@
 #include "global.h"
 #include "clock.h"
 #include "utils.h"
+#include "date.h"
+
+extern tm tm_time;
+extern Layer *date_layer;
 
 static Layer *window_layer = 0;
 static Layer *dial_layer = 0;
 static Layer *hours_layer = 0;
 static Layer *minutes_layer = 0;
 static Layer *seconds_layer = 0;
-static tm tm_time;
 static bool show_seconds = false;
 static AppTimer *secs_display_apptimer = 0;
 
@@ -127,11 +130,13 @@ static void start_seconds_display( AccelAxisType axis, int32_t direction ) {
 
 static void prv_unobstructed_change( AnimationProgress progress, void *context ) {
   GRect uo_bounds = layer_get_unobstructed_bounds( (Layer *) context );
-  // GRect bounds = layer_get_bounds( dial_layer );
   layer_set_bounds( dial_layer, uo_bounds );
   layer_set_bounds( hours_layer, uo_bounds );
   layer_set_bounds( minutes_layer, uo_bounds );
   layer_set_bounds( seconds_layer, uo_bounds );
+  GRect date_window_frame = DATE_WINDOW_FRAME;
+  date_window_frame.origin.y = uo_bounds.origin.y + uo_bounds.size.h/2 - date_window_frame.size.h/2;
+  layer_set_frame( date_layer, date_window_frame );
   layer_mark_dirty( dial_layer );
 }
 
@@ -141,6 +146,8 @@ void clock_init( Window* window ){
   dial_layer = layer_create( CLOCK_DIAL_RECT );
   layer_set_update_proc( dial_layer, dial_layer_update_proc );
   layer_add_child( window_layer, dial_layer );
+  
+  date_init( dial_layer );
   
   hours_layer = layer_create( CLOCK_DIAL_RECT );
   layer_set_update_proc( hours_layer, hours_layer_update_proc );
@@ -165,5 +172,6 @@ void clock_deinit( void ){
   if ( seconds_layer ) layer_destroy( seconds_layer );
   if ( minutes_layer ) layer_destroy( minutes_layer );
   if ( hours_layer ) layer_destroy( hours_layer );
+  date_deinit();
   if ( dial_layer ) layer_destroy( dial_layer );
 }

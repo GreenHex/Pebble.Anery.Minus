@@ -6,3 +6,5 @@
 #include <pebble.h>
 
 // #define DEBUG
+
+tm tm_time;

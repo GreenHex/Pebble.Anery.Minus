@@ -34,13 +34,12 @@ static GPathInfo HOUR_HAND_SBGE001_POINTS = {
 };
 
 static GPathInfo HOUR_HAND_SBGE001_POINTS_HIGHLIGHT = {
-  6, (GPoint []) {
-    { -1, 18 },
-    { -8, 0 },
-    { -1, -46 },
-    { 1, -46 },
-    { 8, 0 },
-    { 1, 18 }
+  5, (GPoint []) {
+    { 0, 20 },
+    { -3, 20 },
+    { -10, 0 },
+    { -3, -48 },
+    { 0, -48 },
   }
 };
 
@@ -56,13 +55,12 @@ static GPathInfo MINUTE_HAND_SBGE001_POINTS = {
 };
 
 static GPathInfo MINUTE_HAND_SBGE001_POINTS_HIGHLIGHT = {
-  6, (GPoint []) {
-    { -1, 18 },
-    { -6, 0 },
-    { -1, -72 },
-    { 1, -72 },
-    { 6, 0 },
-    { 1, 18 }
+  5, (GPoint []) {
+    { 0, 20 },
+    { -3, 20 },
+    { -8, 0 },
+    { -3, -74 },
+    { 0, -74 },
   }
 };
 
@@ -72,21 +70,20 @@ static GPathInfo HOUR_HAND_SBGE001_POINTS = {
   6, (GPoint []) {
     { -3, 14 },
     { -8, 0 },
-    { -2, -38 },
-    { 2, -38 },
+    { -2, -42 },
+    { 2, -42 },
     { 8, 0 },
     { 3, 14 }
   }
 };
 
 static GPathInfo HOUR_HAND_SBGE001_POINTS_HIGHLIGHT = {
-  6, (GPoint []) {
-    { -1, 12 },
-    { -6, 0 },
-    { 0, -36 },
-    { 0, -36 },
-    { 6, 0 },
-    { 1, 12 }
+  5, (GPoint []) {
+    { 0, 14 },
+    { -3, 14 },
+    { -8, 0 },
+    { -2, -42 },
+    { 0, -42 },
   }
 };
 
@@ -94,21 +91,20 @@ static GPathInfo MINUTE_HAND_SBGE001_POINTS = {
   6, (GPoint []) {
     { -3, 14 },
     { -7, 0 },
-    { -2, -60 },
-    { 2, -60 },
+    { -2, -61 },
+    { 2, -61 },
     { 7, 0 },
     { 3, 14 }
   }
 };
 
 static GPathInfo MINUTE_HAND_SBGE001_POINTS_HIGHLIGHT = {
-  6, (GPoint []) {
-    { -1, 12 },
-    { -5, 0 },
-    { -0, -58 },
-    { 0, -58 },
-    { 5, 0 },
-    { 1, 12 }
+  5, (GPoint []) {
+    { 0, 14 },
+    { -3, 14 },
+    { -7, 0 },
+    { -2, -61 },
+    { 0, -62 },
   }
 };
 
@@ -116,7 +112,7 @@ static GPathInfo MINUTE_HAND_SBGE001_POINTS_HIGHLIGHT = {
 
 #if PBL_DISPLAY_WIDTH == 200
 
-#define SEC_HAND_LENGTH 73
+#define SEC_HAND_LENGTH 74
 #define SEC_HAND_TAIL_LENGTH 28
 #define SEC_HAND_TIP_LENGTH 16
 #define SEC_HAND_WIDTH 1
@@ -124,8 +120,8 @@ static GPathInfo MINUTE_HAND_SBGE001_POINTS_HIGHLIGHT = {
 
 #else
 
-#define SEC_HAND_LENGTH 55 /* 53 */
-#define SEC_HAND_TAIL_LENGTH 20
+#define SEC_HAND_LENGTH 61 /* 55  53 */
+#define SEC_HAND_TAIL_LENGTH 23
 #define SEC_HAND_TIP_LENGTH 12
 #define SEC_HAND_WIDTH 1
 #define SEC_CENTER_DOT_RADIUS 4
