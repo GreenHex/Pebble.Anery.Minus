@@ -19,12 +19,6 @@ static Layer *seconds_layer = 0;
 static bool show_seconds = false;
 static AppTimer *secs_display_apptimer = 0;
 
-void draw_clock( void ) {
-  time_t now = time( NULL );
-  tm_time = *localtime( &now ); // copy to global
-  layer_mark_dirty( dial_layer );
-}
-
 static void handle_clock_tick( struct tm *tick_time, TimeUnits units_changed ) {
   tm_time = *tick_time; // copy to global
   
@@ -175,7 +169,9 @@ void clock_init( Window* window ){
   tick_timer_service_subscribe( MINUTE_UNIT, handle_clock_tick );
   accel_tap_service_subscribe( start_seconds_display );
   
-  draw_clock();
+  time_t now = time( NULL );
+  handle_clock_tick( localtime( &now ), YEAR_UNIT | MONTH_UNIT | DAY_UNIT | HOUR_UNIT | MINUTE_UNIT | SECOND_UNIT );
+  
 }
 
 void clock_deinit( void ){
