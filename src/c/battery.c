@@ -17,7 +17,7 @@ static void battery_layer_update_proc( Layer *layer, GContext *ctx ) {
   GRect bounds = layer_get_bounds( layer );
   graphics_context_set_antialiased( ctx, true );
 
-  graphics_context_set_fill_color( ctx, GColorBlack );
+  graphics_context_set_fill_color( ctx, BACKGROUND_COLOUR );
   graphics_fill_rect( ctx, bounds, 0, GCornerNone );
   
   GPath *gpath = gpath_create( &BATT_GAUGE_TICK ); 
@@ -46,11 +46,11 @@ static void battery_layer_update_proc( Layer *layer, GContext *ctx ) {
     .from_pt = BATTERY_GAUGE_PIVOT,
     .to_pt = battery_hand,
     .hand_width = 1,
-    .hand_colour = PBL_IF_COLOR_ELSE( GColorDarkGray, GColorWhite ),
-    .hand_outline_colour = GColorBlack,
+    .hand_colour = BATTERY_GAUGE_POINTER_FILL_COLOUR,
+    .hand_outline_colour = BATTERY_GAUGE_POINTER_OUTLINE_COLOUR,
     .dot_radius = BATT_GAUGE_DOT_RADIUS,
-    .dot_colour = PBL_IF_COLOR_ELSE( GColorDarkGray, GColorWhite ),
-    .dot_outline_colour = GColorBlack
+    .dot_colour = BATTERY_GAUGE_POINTER_FILL_COLOUR,
+    .dot_outline_colour = BATTERY_GAUGE_POINTER_OUTLINE_COLOUR
   } );
   
   graphics_context_set_fill_color( ctx, charge_state.is_charging ? GColorJaegerGreen : 

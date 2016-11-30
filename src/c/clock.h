@@ -128,11 +128,5 @@ static GPathInfo MINUTE_HAND_SBGE001_POINTS_HIGHLIGHT = {
 
 #endif
 
-#define COLOUR_BG_BITMAP_BG     GColorBlack
-#define COLOUR_DOT              GColorWhite
-#define COLOUR_DOT_OUTLINE      GColorBlack
-#define COLOUR_SEC_HAND         GColorWhite
-#define COLOUR_SEC_HAND_TIP     PBL_IF_COLOR_ELSE( GColorRed /* GColorDarkCandyAppleRed */, GColorWhite )
-
 void clock_init( Window* window );
 void clock_deinit( void );

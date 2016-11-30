@@ -19,6 +19,12 @@ static Layer *seconds_layer = 0;
 static bool show_seconds = false;
 static AppTimer *secs_display_apptimer = 0;
 
+static uint32_t const two_segments[] = { 200, 200, 200 };
+VibePattern double_vibe_pattern = {
+  .durations = two_segments,
+  .num_segments = ARRAY_LENGTH( two_segments ),
+};
+
 static void handle_clock_tick( struct tm *tick_time, TimeUnits units_changed ) {
   tm_time = *tick_time; // copy to global
   
@@ -27,16 +33,17 @@ static void handle_clock_tick( struct tm *tick_time, TimeUnits units_changed ) {
   #endif
   
   layer_mark_dirty( dial_layer );
+  if ( units_changed & HOUR_UNIT ) vibes_enqueue_custom_pattern( double_vibe_pattern );
 }
 
 static void dial_layer_update_proc( Layer *layer, GContext *ctx ) {
   GRect bounds = layer_get_bounds( layer );
   graphics_context_set_antialiased( ctx, true );
-  graphics_context_set_fill_color( ctx, GColorBlack );
+  graphics_context_set_fill_color( ctx, BACKGROUND_COLOUR );
   graphics_fill_rect( ctx, bounds, 0, GCornerNone );
-  draw_seconds_ticks( & (DRAW_TICKS_PARAMS) { layer, ctx, &PATH_TICK, 5, 1, 12, GColorWhite, GColorBlack } );
-  draw_seconds_ticks( & (DRAW_TICKS_PARAMS) { layer, ctx, &PATH_TICK, 15, 3, 15, GColorWhite, GColorBlack } );
-  graphics_context_set_stroke_color( ctx, GColorBlack );
+  draw_seconds_ticks( & (DRAW_TICKS_PARAMS) { layer, ctx, &PATH_TICK, 5, 1, 12, TICKS_COLOUR, BACKGROUND_COLOUR } );
+  draw_seconds_ticks( & (DRAW_TICKS_PARAMS) { layer, ctx, &PATH_TICK, 15, 3, 15, TICKS_COLOUR, BACKGROUND_COLOUR } );
+  graphics_context_set_stroke_color( ctx, BACKGROUND_COLOUR );
   graphics_context_set_stroke_width( ctx, 3 * 2 );
   graphics_draw_round_rect( ctx, bounds, 0 );
 }
@@ -52,9 +59,9 @@ static void hours_layer_update_proc( Layer *layer, GContext *ctx ) {
     .angle = hour_angle, 
     .gpath_hand = &HOUR_HAND_SBGE001_POINTS, 
     .gpath_hand_highlight = &HOUR_HAND_SBGE001_POINTS_HIGHLIGHT,
-    .hand_colour = GColorWhite,
-    .hand_highlight_colour = GColorLightGray,
-    .hand_outline_colour = GColorBlack
+    .hand_colour = HAND_COLOUR,
+    .hand_highlight_colour = HAND_HIGHLIGHT_COLOUR,
+    .hand_outline_colour = HAND_OUTLINE_COLOUR
   } );
 }
 
@@ -69,9 +76,9 @@ static void minutes_layer_update_proc( Layer *layer, GContext *ctx ) {
     .angle = minute_angle, 
     .gpath_hand = &MINUTE_HAND_SBGE001_POINTS, 
     .gpath_hand_highlight = &MINUTE_HAND_SBGE001_POINTS_HIGHLIGHT,
-    .hand_colour = GColorWhite,
-    .hand_highlight_colour = GColorLightGray,
-    .hand_outline_colour = GColorBlack
+    .hand_colour = HAND_COLOUR,
+    .hand_highlight_colour = HAND_HIGHLIGHT_COLOUR,
+    .hand_outline_colour = HAND_OUTLINE_COLOUR
   } );
 }
 
