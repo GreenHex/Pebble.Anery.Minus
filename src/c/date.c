@@ -33,9 +33,8 @@ void date_init( Layer *parent_layer ) {
   date_layer = layer_create( DATE_WINDOW_FRAME );
   layer_set_update_proc( date_layer, date_layer_update_proc );
   layer_add_child( parent_layer, date_layer );
-
-  GRect date_window_bounds = grect_inset( DATE_WINDOW_BOUNDS, GEdgeInsets( DATE_WINDOW_OUTLINE_THK ) );  
-  date_text_layer = text_layer_create( date_window_bounds );
+  
+  date_text_layer = text_layer_create( grect_inset( DATE_WINDOW_BOUNDS, GEdgeInsets( DATE_WINDOW_OUTLINE_THK ) ) );
   layer_set_update_proc( text_layer_get_layer( date_text_layer ), date_text_layer_update_proc );
   layer_add_child( date_layer, text_layer_get_layer( date_text_layer ) );
 }

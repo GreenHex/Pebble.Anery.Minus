@@ -181,7 +181,7 @@ void clock_init( Window* window ){
   accel_tap_service_subscribe( start_seconds_display );
   
   time_t now = time( NULL );
-  handle_clock_tick( localtime( &now ), YEAR_UNIT | MONTH_UNIT | DAY_UNIT | HOUR_UNIT | MINUTE_UNIT | SECOND_UNIT );
+  handle_clock_tick( localtime( &now ), 0 );
 }
 
 void clock_deinit( void ){

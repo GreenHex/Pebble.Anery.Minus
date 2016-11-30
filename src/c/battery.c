@@ -14,11 +14,9 @@ static void batt_gauge_update_proc( BatteryChargeState state ) {
 }
 
 static void battery_layer_update_proc( Layer *layer, GContext *ctx ) {
-  GRect bounds = layer_get_bounds( layer );
   graphics_context_set_antialiased( ctx, true );
-
   graphics_context_set_fill_color( ctx, BACKGROUND_COLOUR );
-  graphics_fill_rect( ctx, bounds, 0, GCornerNone );
+  graphics_fill_rect( ctx, layer_get_bounds( layer ), 0, GCornerNone );
   
   GPath *gpath = gpath_create( &BATT_GAUGE_TICK ); 
   gpath_move_to( gpath, BATTERY_GAUGE_TICK_POS );
