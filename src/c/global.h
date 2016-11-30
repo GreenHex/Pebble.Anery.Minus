@@ -7,4 +7,4 @@
 
 // #define DEBUG
 
-tm tm_time;
+extern tm tm_time;

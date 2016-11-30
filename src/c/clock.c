@@ -9,9 +9,7 @@
 #include "date.h"
 #include "battery.h"
 
-extern tm tm_time;
-extern Layer *date_layer;
-extern Layer *battery_layer;
+tm tm_time;
 
 static Layer *window_layer = 0;
 static Layer *dial_layer = 0;

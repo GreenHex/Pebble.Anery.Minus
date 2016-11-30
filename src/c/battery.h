@@ -33,10 +33,6 @@
 #define BATTERY_GAUGE_TICK_POS_Y ( BATT_GAUGE_SIZE_H / 2 )
 #define BATTERY_GAUGE_TICK_POS ( GPoint( -BATTERY_GAUGE_TICK_POS_X, BATTERY_GAUGE_TICK_POS_Y ) )
 
-#define COLOUR_BATT_15          GColorRed
-#define COLOUR_BATT_95          GColorDarkGreen
-#define COLOUR_BATT_100         GColorMayGreen
-
 #if PBL_DISPLAY_WIDTH == 200
 
 static GPathInfo BATT_GAUGE_TICK = {
@@ -68,7 +64,7 @@ typedef struct {
   BatteryChargeState charge_state;
 } BATTERY_HAND_DRAW_PARAMS;
 
-Layer *battery_layer;
+extern Layer *battery_layer;
 
 void battery_init( Layer *parent_layer );
 void battery_deinit( void );

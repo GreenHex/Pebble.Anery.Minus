@@ -18,7 +18,7 @@
 #define DATE_WINDOW_BOUNDS ( GRect( 0, 0, DATE_WINDOW_SIZE_W, DATE_WINDOW_SIZE_H ) )
 #define DATE_WINDOW_FRAME ( GRect ( DATE_WINDOW_POS_X, DATE_WINDOW_POS_Y, DATE_WINDOW_SIZE_W, DATE_WINDOW_SIZE_H ) )
 
-Layer *date_layer;
+extern Layer *date_layer;
 
 void date_init( Layer *parent_layer );
 void date_deinit( void );

@@ -5,8 +5,7 @@
 #include <pebble.h>
 #include "date.h"
 
-extern tm tm_time;
-extern Layer *date_layer;
+Layer *date_layer;
 
 static TextLayer *date_text_layer = 0;
 

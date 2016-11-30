@@ -6,6 +6,7 @@
 #include "battery.h"
 #include "utils.h"
 
+Layer *battery_layer;
 static BatteryChargeState charge_state;
 
 static void batt_gauge_update_proc( BatteryChargeState state ) {
