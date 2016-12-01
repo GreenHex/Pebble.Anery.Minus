@@ -12,6 +12,7 @@
 #define CLOCK_DIAL_POS_Y 0
 
 #define CLOCK_DIAL_RECT ( GRect( CLOCK_DIAL_POS_X, CLOCK_DIAL_POS_Y, CLOCK_DIAL_SIZE_W, CLOCK_DIAL_SIZE_H ) )
+#define CLOCK_TICK_EDGE_OFFSET 3
 
 static GPathInfo PATH_TICK = {
   2, (GPoint []) {
