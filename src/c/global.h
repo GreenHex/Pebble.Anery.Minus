@@ -12,7 +12,7 @@
 #define HAND_COLOUR GColorLightGray
 #define HAND_HIGHLIGHT_COLOUR GColorWhite
 #define HAND_OUTLINE_COLOUR GColorBlack
-#define BATTERY_GAUGE_POINTER_FILL_COLOUR PBL_IF_COLOR_ELSE( GColorLightGray, GColorBlack )
+#define BATTERY_GAUGE_POINTER_FILL_COLOUR PBL_IF_COLOR_ELSE( GColorLightGray, GColorWhite )
 #define BATTERY_GAUGE_POINTER_OUTLINE_COLOUR PBL_IF_COLOR_ELSE( GColorBlack, GColorBlack )
 
 #define COLOUR_BG_BITMAP_BG     BACKGROUND_COLOUR
@@ -21,6 +21,6 @@
 #define COLOUR_SEC_HAND         TICKS_COLOUR /* GColorWhite */
 #define COLOUR_SEC_HAND_TIP     PBL_IF_COLOR_ELSE( GColorRed /* GColorDarkCandyAppleRed */, GColorWhite )
 
-#define SHOW_TIME_TIMER_TIMEOUT ( 30 * 1000 )
+#define SHOW_TIME_TIMER_TIMEOUT ( 5 * 1000 )
 
 extern tm tm_time;

@@ -44,8 +44,8 @@ static void dial_layer_update_proc( Layer *layer, GContext *ctx ) {
   draw_seconds_ticks( & (DRAW_TICKS_PARAMS) { layer, ctx, &PATH_TICK, 5, 1, 12, TICKS_COLOUR, BACKGROUND_COLOUR } );
   draw_seconds_ticks( & (DRAW_TICKS_PARAMS) { layer, ctx, &PATH_TICK, 15, 3, 15, TICKS_COLOUR, BACKGROUND_COLOUR } );
   graphics_context_set_stroke_color( ctx, BACKGROUND_COLOUR );
-  graphics_context_set_stroke_width( ctx, 3 * 2 );
-  graphics_draw_round_rect( ctx, bounds, 0 );
+  graphics_context_set_stroke_width( ctx, 3 );
+  graphics_draw_round_rect( ctx, grect_inset( bounds, GEdgeInsets( 1 ) ), 0 );
 }
 
 static void hours_layer_update_proc( Layer *layer, GContext *ctx ) {
