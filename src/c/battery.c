@@ -11,6 +11,7 @@ static BatteryChargeState charge_state;
 
 static void batt_gauge_update_proc( BatteryChargeState state ) {
   charge_state = state;
+  layer_mark_dirty( battery_layer );
 }
 
 static void battery_layer_update_proc( Layer *layer, GContext *ctx ) {
