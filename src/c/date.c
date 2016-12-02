@@ -21,8 +21,12 @@ static void date_layer_update_proc( Layer *layer, GContext *ctx ) {
 static void date_text_layer_update_proc( Layer *layer, GContext *ctx ) {
   GRect bounds = layer_get_bounds( layer );
   static char date_text[3] = "";
-  GColor text_color = ( tm_time.tm_wday == 0 ) ? GColorOrange : ( tm_time.tm_wday == 6 ) ? GColorBlueMoon : GColorBlack;
-  graphics_context_set_text_color( ctx, text_color );
+  #if defined(PBL_COLOR)
+  GColor text_colour = ( tm_time.tm_wday == 0 ) ? GColorOrange : ( tm_time.tm_wday == 6 ) ? GColorBlueMoon : GColorBlack;
+  #else
+  GColor text_colour = GColorBlack;
+  #endif
+  graphics_context_set_text_color( ctx, text_colour );
   snprintf( date_text, sizeof( date_text ), "%d", tm_time.tm_mday );
   bounds.origin.y -= DATE_TXT_VERT_ADJ;
   graphics_draw_text( ctx, date_text, fonts_get_system_font( FONT_KEY_ROBOTO_CONDENSED_21 ), bounds,
