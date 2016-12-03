@@ -12,6 +12,11 @@
 #define HAND_COLOUR GColorLightGray
 #define HAND_HIGHLIGHT_COLOUR GColorWhite
 #define HAND_OUTLINE_COLOUR GColorBlack
+/*
+#define HAND_COLOUR GColorCobaltBlue
+#define HAND_HIGHLIGHT_COLOUR GColorPictonBlue
+#define HAND_OUTLINE_COLOUR GColorBlack
+*/
 #define BATTERY_GAUGE_POINTER_FILL_COLOUR PBL_IF_COLOR_ELSE( GColorLightGray, GColorWhite )
 #define BATTERY_GAUGE_POINTER_OUTLINE_COLOUR PBL_IF_COLOR_ELSE( GColorBlack, GColorBlack )
 
