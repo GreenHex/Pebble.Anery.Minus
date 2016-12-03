@@ -11,6 +11,18 @@
         "resources": {
             "media": [
                 {
+                    "characterRegex": "[0-9]",
+                    "file": "fonts/Gabriela-Regular.ttf",
+                    "name": "FONT_GABRIELA_REGULAR_22",
+                    "targetPlatforms": [
+                        "aplite",
+                        "basalt",
+                        "diorite",
+                        "emery"
+                    ],
+                    "type": "font"
+                },
+                {
                     "file": "images/Anery Icon.png",
                     "menuIcon": true,
                     "name": "APP_ICON",
