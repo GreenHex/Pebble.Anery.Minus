@@ -30,6 +30,7 @@ static void date_layer_update_proc( Layer *layer, GContext *ctx ) {
 static void date_text_layer_update_proc( Layer *layer, GContext *ctx ) {
   GRect bounds = layer_get_bounds( layer );
   static char date_text[3] = "";
+  
   #if defined(PBL_COLOR)
   GColor text_colour = ( tm_time.tm_wday == 0 ) ? GColorOrange : ( tm_time.tm_wday == 6 ) ? GColorBlueMoon : GColorBlack;
   #else
