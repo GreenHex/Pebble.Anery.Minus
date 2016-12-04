@@ -1,7 +1,10 @@
 //
 // Copyright (C) 2016, Vinodh Kumar M. <GreenHex@gmail.com>
 //
-// Font: https://fonts.google.com/specimen/Gabriela
+// Fonts:
+// https://fonts.google.com/specimen/Gabriela
+// https://fonts.google.com/specimen/BioRhyme
+// https://fonts.google.com/specimen/BioRhyme+Expanded
 //
 
 #include <pebble.h>
@@ -21,6 +24,8 @@ static void date_layer_update_proc( Layer *layer, GContext *ctx ) {
 }
 
 #define ALTERNATE_FONT
+#define DATE_FONT_EXPANDED RESOURCE_ID_FONT_BIORHYME_EXPANDED_REGULAR_22
+#define DATE_FONT_NORMAL RESOURCE_ID_FONT_BIORHYME_REGULAR_22
 
 static void date_text_layer_update_proc( Layer *layer, GContext *ctx ) {
   GRect bounds = layer_get_bounds( layer );
@@ -35,7 +40,12 @@ static void date_text_layer_update_proc( Layer *layer, GContext *ctx ) {
   bounds.origin.y -= DATE_TXT_VERT_ADJ;
   
   #ifdef ALTERNATE_FONT
-  GFont font = fonts_load_custom_font( resource_get_handle( RESOURCE_ID_FONT_GABRIELA_REGULAR_22 ) );
+  GFont font;
+  if ( tm_time.tm_mday < 10 ) {
+    font = fonts_load_custom_font( resource_get_handle( DATE_FONT_EXPANDED ) );
+  } else {
+    font = fonts_load_custom_font( resource_get_handle( DATE_FONT_NORMAL ) );
+  }
   graphics_draw_text( ctx, date_text, font, bounds,
                      GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, NULL );
   fonts_unload_custom_font( font );
