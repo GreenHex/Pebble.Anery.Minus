@@ -26,6 +26,6 @@
 #define COLOUR_SEC_HAND         TICKS_COLOUR /* GColorWhite */
 #define COLOUR_SEC_HAND_TIP     PBL_IF_COLOR_ELSE( GColorRed /* GColorDarkCandyAppleRed */, GColorWhite )
 
-#define SHOW_TIME_TIMER_TIMEOUT ( 5 * 1000 )
+#define SHOW_SECONDS_TIMER_TIMEOUT_MS ( 5 * 1000 )
 
 extern tm tm_time;
