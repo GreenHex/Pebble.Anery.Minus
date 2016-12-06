@@ -2,7 +2,6 @@
 // Copyright (C) 2016, Vinodh Kumar M. <GreenHex@gmail.com>
 //
 // Fonts:
-// https://fonts.google.com/specimen/Gabriela
 // https://fonts.google.com/specimen/BioRhyme
 // https://fonts.google.com/specimen/BioRhyme+Expanded
 //
@@ -24,8 +23,8 @@ static void date_layer_update_proc( Layer *layer, GContext *ctx ) {
 }
 
 #define ALTERNATE_FONT
-#define DATE_FONT_EXPANDED RESOURCE_ID_FONT_BIORHYME_EXPANDED_REGULAR_22
-#define DATE_FONT_NORMAL RESOURCE_ID_FONT_BIORHYME_REGULAR_22
+#define DATE_FONT_EXPANDED RESOURCE_ID_FONT_BIORHYME_EXPANDED_REGULAR_20
+#define DATE_FONT_NORMAL RESOURCE_ID_FONT_BIORHYME_REGULAR_20
 
 static void date_text_layer_update_proc( Layer *layer, GContext *ctx ) {
   GRect bounds = layer_get_bounds( layer );
@@ -41,17 +40,17 @@ static void date_text_layer_update_proc( Layer *layer, GContext *ctx ) {
   
   #ifdef ALTERNATE_FONT
   GFont font;
-  bounds.origin.y -= DATE_TXT_VERT_ADJ;
   if ( tm_time.tm_mday < 10 ) {
     font = fonts_load_custom_font( resource_get_handle( DATE_FONT_EXPANDED ) );
   } else {
     font = fonts_load_custom_font( resource_get_handle( DATE_FONT_NORMAL ) );
   }
+  bounds.origin.y -= ( DATE_TXT_VERT_ADJ - 1 );
   graphics_draw_text( ctx, date_text, font, bounds,
                      GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, NULL );
   fonts_unload_custom_font( font );
   #else
-  bounds.origin.y -= ( DATE_TXT_VERT_ADJ - 1 );
+  bounds.origin.y -= DATE_TXT_VERT_ADJ;
   graphics_draw_text( ctx, date_text, fonts_get_system_font( FONT_KEY_ROBOTO_CONDENSED_21 ), bounds,
                      GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, NULL );
   #endif
