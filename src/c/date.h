@@ -6,7 +6,7 @@
 #include <pebble.h>
 #include "global.h"
 
-#define DATE_WINDOW_SIZE_W 32
+#define DATE_WINDOW_SIZE_W 34
 #define DATE_WINDOW_SIZE_H 26
 #define DATE_WINDOW_POS_X ( PBL_DISPLAY_WIDTH - DATE_WINDOW_SIZE_W - DATE_LEFT_GAP )
 #define DATE_WINDOW_POS_Y ( PBL_DISPLAY_HEIGHT/2 - DATE_WINDOW_SIZE_H/2 )
