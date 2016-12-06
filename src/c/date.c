@@ -38,10 +38,10 @@ static void date_text_layer_update_proc( Layer *layer, GContext *ctx ) {
   #endif
   graphics_context_set_text_color( ctx, text_colour );
   snprintf( date_text, sizeof( date_text ), "%d", tm_time.tm_mday );
-  bounds.origin.y -= DATE_TXT_VERT_ADJ;
   
   #ifdef ALTERNATE_FONT
   GFont font;
+  bounds.origin.y -= DATE_TXT_VERT_ADJ;
   if ( tm_time.tm_mday < 10 ) {
     font = fonts_load_custom_font( resource_get_handle( DATE_FONT_EXPANDED ) );
   } else {
@@ -51,6 +51,7 @@ static void date_text_layer_update_proc( Layer *layer, GContext *ctx ) {
                      GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, NULL );
   fonts_unload_custom_font( font );
   #else
+  bounds.origin.y -= ( DATE_TXT_VERT_ADJ - 1 );
   graphics_draw_text( ctx, date_text, fonts_get_system_font( FONT_KEY_ROBOTO_CONDENSED_21 ), bounds,
                      GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, NULL );
   #endif
