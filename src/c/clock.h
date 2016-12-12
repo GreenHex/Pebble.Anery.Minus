@@ -24,87 +24,79 @@ static GPathInfo PATH_TICK = {
 #if PBL_DISPLAY_WIDTH == 200
 
 static GPathInfo HOUR_HAND_SBGE001_POINTS = {
-  6, (GPoint []) {
+  5, (GPoint []) {
     { -3, 20 },
     { -11, 0 },
-    { -3, -48 },
-    { 3, -48 },
+    { 0, -48 },
     { 11, 0 },
     { 3, 20 }
   }
 };
 
 static GPathInfo HOUR_HAND_SBGE001_POINTS_HIGHLIGHT = {
-  5, (GPoint []) {
+  4, (GPoint []) {
     { 0, 20 },
     { 3, 20 },
     { 11, 0 },
-    { 3, -48 },
     { 0, -48 },
   }
 };
 
 static GPathInfo MINUTE_HAND_SBGE001_POINTS = {
-  6, (GPoint []) {
+  5, (GPoint []) {
     { -3, 20 },
-    { -8, 0 },
-    { -3, -74 },
-    { 3, -74 },
-    { 8, 0 },
+    { -9, 0 },
+    { 0, -77 },
+    { 9, 0 },
     { 3, 20 }
   }
 };
 
 static GPathInfo MINUTE_HAND_SBGE001_POINTS_HIGHLIGHT = {
-  5, (GPoint []) {
+  4, (GPoint []) {
     { 0, 20 },
     { -3, 20 },
-    { -8, 0 },
-    { -3, -74 },
-    { 0, -74 },
+    { -9, 0 },
+    { 0, -77 },
   }
 };
 
 #else
 
 static GPathInfo HOUR_HAND_SBGE001_POINTS = {
-  6, (GPoint []) {
+  5, (GPoint []) {
     { -3, 14 },
     { -9, 0 },
-    { -2, -42 },
-    { 2, -42 },
+    { 0, -42 },
     { 9, 0 },
     { 3, 14 }
   }
 };
 
 static GPathInfo HOUR_HAND_SBGE001_POINTS_HIGHLIGHT = {
-  5, (GPoint []) {
+  4, (GPoint []) {
     { 0, 14 },
     { 3, 14 },
     { 9, 0 },
-    { 2, -42 },
     { 0, -42 },
   }
 };
 
 static GPathInfo MINUTE_HAND_SBGE001_POINTS = {
-  6, (GPoint []) {
+  5, (GPoint []) {
     { -3, 14 },
     { -7, 0 },
-    { -2, -61 },
-    { 2, -61 },
+    { 0, -61 },
     { 7, 0 },
     { 3, 14 }
   }
 };
 
 static GPathInfo MINUTE_HAND_SBGE001_POINTS_HIGHLIGHT = {
-  5, (GPoint []) {
+  4, (GPoint []) {
     { 0, 14 },
     { -3, 14 },
     { -7, 0 },
-    { -2, -61 },
     { 0, -61 },
   }
 };

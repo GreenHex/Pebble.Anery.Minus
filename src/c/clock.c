@@ -27,7 +27,7 @@ VibePattern double_vibe_pattern = {
 
 static void handle_clock_tick( struct tm *tick_time, TimeUnits units_changed ) {
   tm_time = *tick_time; // copy to global
-  
+    
   #ifdef DEBUG
   APP_LOG( APP_LOG_LEVEL_INFO, "clock.c: handle_clock_tick(): %d:%d:%d", tm_time.tm_hour, tm_time.tm_min, tm_time.tm_sec );
   #endif

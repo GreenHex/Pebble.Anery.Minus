@@ -15,7 +15,7 @@ static TextLayer *date_text_layer = 0;
 
 static void date_layer_update_proc( Layer *layer, GContext *ctx ) {
   GRect bounds = layer_get_bounds( layer );
-  graphics_context_set_fill_color( ctx, PBL_IF_COLOR_ELSE( GColorDarkGray, GColorDarkGray ) );
+  graphics_context_set_fill_color( ctx, PBL_IF_COLOR_ELSE( GColorLightGray, GColorDarkGray ) );
   graphics_fill_rect( ctx, bounds, DATE_WINDOW_OUTLINE_THK, GCornersAll );
 
   graphics_context_set_fill_color( ctx, GColorWhite );
@@ -39,12 +39,10 @@ static void date_text_layer_update_proc( Layer *layer, GContext *ctx ) {
   snprintf( date_text, sizeof( date_text ), "%d", tm_time.tm_mday );
   
   #ifdef ALTERNATE_FONT
-  GFont font;
-  if ( tm_time.tm_mday < 10 ) {
-    font = fonts_load_custom_font( resource_get_handle( DATE_FONT_EXPANDED ) );
-  } else {
-    font = fonts_load_custom_font( resource_get_handle( DATE_FONT_NORMAL ) );
-  }
+  GFont font = ( tm_time.tm_mday < 10 ) ?
+                      fonts_load_custom_font( resource_get_handle( DATE_FONT_EXPANDED ) ) :
+                      fonts_load_custom_font( resource_get_handle( DATE_FONT_NORMAL ) );
+
   bounds.origin.y -= ( DATE_TXT_VERT_ADJ - 1 );
   graphics_draw_text( ctx, date_text, font, bounds,
                      GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, NULL );

@@ -4,6 +4,7 @@
 
 #include <pebble.h>
 #include "utils.h"
+#include "global.h"
 
 // function is "adjusted"" for whole hours or minutes; "after" 9:00 AM or "upto" 9:00 AM.
 // "after" includes the hour, "upto" excludes the hour.
@@ -60,7 +61,8 @@ void draw_gpath_hands( GPATH_HANDS_PARAMS *pGP ) {
   graphics_context_set_stroke_width( pGP->ctx, 1 );
   graphics_context_set_stroke_color( pGP->ctx, pGP->hand_outline_colour );
   gpath_draw_outline( pGP->ctx, gpath );
-  graphics_context_set_fill_color( pGP->ctx, GColorBlack );
+  
+  graphics_context_set_fill_color( pGP->ctx, BACKGROUND_COLOUR );
   graphics_fill_circle( pGP->ctx, pGP->center_pt, 2 );
   
   gpath_destroy( gpath );
